@@ -1,7 +1,7 @@
 <template>
  
     <section id="hero">
-     <v-container>
+     <v-container id="scrolling-techniques-8">
         <v-row
           align="center" :justify="justifyContent"
         >
