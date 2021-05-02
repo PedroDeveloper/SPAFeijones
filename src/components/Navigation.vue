@@ -102,16 +102,13 @@
  </v-app-bar>
 
  <v-app-bar
- 
-    inverted-scroll
     app
+    inverted-scroll
     class="appBar2 expand  " 
     color="rgba(90,13,4,0.9) "
     :width= imgWi
     :height= imgHe
     flat
-    scroll-target="#hero"
-
     >
 
 
