@@ -110,6 +110,8 @@
     :width= imgWi
     :height= imgHe
     flat
+    scroll-target="#hero"
+
     >
 
 
