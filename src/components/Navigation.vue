@@ -48,13 +48,11 @@
   </div>
 
  <v-app-bar
-     app
-     dark
+      dark
      :height=barSize
      flat
     absolute
     color="black"
-    class="appBar2"
      >
 <v-col>
     <v-row justify="center">
@@ -77,7 +75,8 @@
    <v-spacer/>
 
     <v-app-bar
-    class="appBar2 expand" 
+    class="expand" 
+    style="position:absolute;bottom:0px;"
     color="rgba(90,13,4,0.7) "
     :width= imgWi
     :height= imgHe
@@ -104,7 +103,8 @@
  <v-app-bar
     app
     inverted-scroll
-    class="appBar2 expand  " 
+    style="bottom:0;"
+    class="expand" 
     color="rgba(90,13,4,0.9) "
     :width= imgWi
     :height= imgHe
