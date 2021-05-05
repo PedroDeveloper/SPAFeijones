@@ -1,60 +1,110 @@
 <template>
-<!-- <v-app> -->
-    <v-footer color="rgba(90,13,4,255)"  >
-        <v-col cols="12 mt-2" v-show="isMobile">
-            <v-row justify="center">
-                <h2 class="h3 white--text">Fale Conosco</h2>
-            </v-row>
-        </v-col>
-        <!-- LINHA PARA A LOGO 
-        <v-row style="border: 1px solid orange">
-            <v-img  height="120" src="@/assets/logo2.png" alt="a"></v-img>
-        </v-row> -->
-        <v-row justify="space-around" justify-md="center" 
-            align="center">
-            <span  v-if="!isMobile" class="white--text mr-2 mt-7 ">@FEIJONES</span>
-            <div v-for="(icon,i) in icons" :key="i"
-                icon
-            >
-                <v-col   cols="12" md="2" xl="12">
-                      <v-row >
-                        <v-btn  class=" mt-6 mr-3"  :color=icon.btnColor 
-                            fab :small=!isMobile
-                            @click="icon.cta"
-                        >
-                            <v-icon  :color=icon.color>{{icon.icon}}</v-icon>
-                        </v-btn>
-                    </v-row>
-                </v-col>
-          </div>
-        </v-row>
-        <v-col cols="12"  >
-            <v-row justify="center" v-if=isMobile>
-              
-            </v-row>
-            <v-row justify="center" v-else>
-          
-            </v-row>
-            
-        </v-col>
-        <v-col  class="mt-4" cols="12">
-            <v-row justify="center" justify-md="center" justify-lg="center">
-                <span class="  h2" >Endereço: Av. Urbana, Ponto certo</span>
-            </v-row>
-        </v-col>
+
+    
+
+    <div v-if="isMobile">
+<v-footer tile  color="rgba(0, 0, 0, 1)" >
+       <v-row justify="space-between">
+           <v-col cols="2"> 
+                <ul >
+                    <v-btn class="text-footer" small color="white" text @click="$vuetify.goTo('#hero')">Home</v-btn>
+                    <v-btn class="text-footer" small color="white" text @click="$vuetify.goTo('#historia')">Sobre Nós</v-btn>
+                    <v-btn class="text-footer" small color="white" text @click="$vuetify.goTo('#form')">Fale Conosco</v-btn>
+                </ul>
+           </v-col>
+            <v-col class="tagFeijones mt-6" cols="6">
+                <p class="white--text  " v-if="isMobile">@FEIJONES</p>
+                <span v-if="!isMobile" class="text-footer">@FEIJONES</span>
+            </v-col>    
+       </v-row>
+
+              <v-row justify="space-between" >
+                <v-col cols="12"  align="center">
+                <v-btn class="mt-1 mr-6"  :color=icon.btnColor 
+                    fab height="38px" width="38px"
+                    @click="icon.cta"
+                    v-for="(icon,i) in icons" :key="i" 
+                >
+                    <v-icon size="33px" :color=icon.color>
+                        {{icon.icon}}
+                    </v-icon>
+                 </v-btn>
+                </v-col>  
+              </v-row>
          
-    </v-footer>
-<!-- </v-app> -->
+
+            <v-row justify="center" v-if="isMobile">
+              <img height="140" width="140" src="@/assets/logoSVG.svg">
+            </v-row>
+          
+          <div class="endereco">
+              <span><span v-if="!isMobile">Endereço: </span> AV. Urbana, Ponto certo.</span>
+          </div>
+ </v-footer>
+    </div>
+
+                                    <!------------------------------- footer desktop ------------------------------------->
+    
+    <div v-else>
+        <v-footer color="black">
+  
+    <v-row justify="space-between">
+      
+                <img  class="ml-6" width="200" height="200" src="@/assets/logoSVG.svg">
+   
+        <v-col align="end" class="mt-5">
+            <v-btn text color="#f4f4cc" @click="$vuetify.goTo('#form')">
+                <span class="text-FotDesk">Fale conosco</span>
+            </v-btn>
+             <v-btn text color="#f4f4cc" @click="$vuetify.goTo('#hero')">
+                <span class="text-FotDesk">Home</span>
+            </v-btn>
+             <v-btn text color="#f4f4cc" @click="$vuetify.goTo('#historia')">
+                <span class="text-FotDesk">Sobre nós</span>
+            </v-btn>
+             <v-btn text color="#f4f4cc" @click="$vuetify.goTo('#comentarios')">
+                <span class="text-FotDesk">Assuntos Legais</span>
+            </v-btn>
+            <v-col class="mt-6" cols="11">
+            <v-row  justify="end">
+                 <v-btn text color="#f4f4cc">
+                     <h1 class="feijonesTag">@FEIJONES</h1>
+                 </v-btn>
+                  <v-btn class="mt-1 mr-6"  :color=icon.btnColor 
+                    fab height="50px" width="50px"
+                    @click="icon.cta"
+                    v-for="(icon,i) in icons" :key="i" 
+                >
+                    <v-icon size="33px" :color=icon.color>
+                        {{icon.icon}}
+                    </v-icon>
+                 </v-btn>
+            </v-row>
+       <v-col class="mt-7 endDesktop" cols="11">
+            <v-row  justify="end">
+                <p style="color:#f4f4cc" >Endereço: Av. Urnana, Ponto Certo</p>
+            </v-row>
+       </v-col>
+        
+            </v-col>
+        </v-col>
+    </v-row>  
+
+        </v-footer>
+    </div>
+
+
+    
+   
+
 </template>
 <script>
-
 export default {
-  
    name:'Footer',
     data:()=>({
         icons:[
                 {
-                    icon:"mdi-instagram", color:"white",btnColor:"red", cta: () => {
+                    icon:"mdi-facebook", color:"white",btnColor:"#041454", cta: () => {
                         alert("Em breve...")
                     }
                 },
@@ -65,12 +115,13 @@ export default {
                     }
                 },
                 {
-                    icon:"mdi-facebook", color:"white",btnColor:"blue", cta: () => {
-                         alert("Em breve...")
+                    
+                    icon:"mdi-instagram", color:"white",btnColor:"#FD1D1D", cta: () => {
+                        alert("Em breve...")
                     }
                 },
                 {
-                    icon:"mdi-twitter", color:"white",btnColor:"blue", cta: () => {
+                    icon:"mdi-twitter", color:"white",btnColor:"#1ca4e0", cta: () => {
                          alert("Em breve...")
                     }
                 }
@@ -91,12 +142,109 @@ export default {
 }
 </script>
 <style scoped>
+
+.text-footer{
+    text-transform: capitalize;
+    font-family: 'ebrima';
+    font-size: 16px;
+}
 .h2{
     color: white;
     font-size:100% ;
 }
-.h3{
-    font-size: 120%;
-}
-    
+
+    .h3{
+        color: white;
+        font-size: 130%;
+    }
+
+    .footer-menu {
+        box-sizing: border-box;
+        margin-top: 10px;
+        display: flex;
+        width: 98vw;
+        font-size: 12px;
+       color: rgba(239,192,141, .9) !important;
+       font-family: 'ebrima';
+    }
+
+  
+    .footer-menu ul {
+        list-style-type: none;
+        color: rgba(239,192,141, .9) !important;
+        font-family: 'ebrima';
+    }
+
+    .footer-menu ul li {
+        cursor: pointer;
+    }
+    .text-FotDesk{
+        font-size: 25px;
+        text-transform: capitalize;
+        font-family: 'ebrima';
+    }
+    .feijonesTag{
+        font-family: 'ebrima';
+        font-size:40px;
+        
+
+
+    }
+    .endDesktop{
+        font-size: 20px;
+        font-family: 'ebrima'
+    }
+
+    .icons-row {
+        display: flex;
+        width: 98vw;
+        justify-content: space-around;
+        size: 30px;
+    }
+
+    .endereco {
+        padding-top: 10px;
+        display: flex;
+        font-size: 12px;
+        color:white !important;
+        justify-content: center;
+        width: 98vw;
+    }
+
+    .logo-footer-desktop {
+        position: relative;
+        top: 120px;
+    }
+
+    @media only screen and (min-width: 760px) {
+        .footer-menu {
+            display: flex;
+            justify-content: flex-end;
+            margin-right: 10px;
+            font-family: 'ebrima';
+        }
+
+        .footer-menu ul {
+            display: flex;
+        }
+        .footer-menu ul li {
+            padding: 10px 12px;
+        }
+
+        .icons-row {
+            justify-content: flex-end;
+            align-items:center;
+            padding: 6px 3px;
+            width: 97vw;
+        }
+
+        .insta {
+            color: rgba(239,192,141, .9);
+            position: relative;
+            top: -2px;
+            left: -16px;
+            font-size: 24px;
+        }
+
+    }
 </style>

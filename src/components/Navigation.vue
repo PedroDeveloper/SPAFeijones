@@ -8,12 +8,13 @@
      app
      temporary
      height="800"
+     
      >
      <v-list>
          <v-list-item>
             <v-list-item-content class=" mt-2 ml-13">
                 <v-list-item-title class="title">FEIJONES
-                    <v-btn style="z-index:100;" class="ml-8" text color="rgba(90,13,4,255)" small fab @click="drawer = false"> <v-icon> mdi-arrow-left</v-icon> </v-btn>
+                    <v-btn style="z-index:100;" class="ml-8" text color="rgba(90,13,4,255)" small fab @click="drawer = false"> <v-icon color="brown" > mdi-arrow-left</v-icon> </v-btn>
                  </v-list-item-title> 
                 <v-list-item-subtitle class="subTitle">Feijao e Feijoada</v-list-item-subtitle>
             </v-list-item-content>
@@ -35,7 +36,6 @@
           <v-list-item-icon class="justify-start">
                 <v-icon  size="30" :color=color> {{icon}} </v-icon> 
           </v-list-item-icon> 
-
           <v-list-item-content @click="$vuetify.goTo(click); drawer=!drawer" >
              <v-list-item-title>{{text}}</v-list-item-title>
           </v-list-item-content>
@@ -43,7 +43,8 @@
          </v-list-item>
         </v-list>
           <v-divider/>
-        <img class="mt-16 ml-7" src="@/assets/drawerLogo.png" alt="a">
+        <img class="mt-9 ml-8" width="190" height="200" src="@/assets/logoSVG.svg" alt="a">
+        <v-icon src="@/assets/feijaoIcon.svg" > </v-icon>
      </v-navigation-drawer>
   </div>
 
@@ -56,7 +57,10 @@
      >
 <v-col>
     <v-row justify="center">
-    <img :class=imgStyle :src=imgSize style="z-index:10;">
+    <img v-if="!isMobile" :class=imgStyle :src=imgSize width="400" height="380" style="z-index:10;">
+    <img v-else :class=imgStyle :src=imgSize width="200" height="200" style="z-index:10;">
+        <span v-if="!isMobile" class="dotDesktop"></span>
+        <span v-else class="dotMobile"></span>
     </v-row>
  
 
@@ -83,16 +87,25 @@
     flat
     >
    
-    <v-row  justify="end" class="mt-9 hidden-md-and-down">
-         <v-btn  style="position:relative;z-index:100;"  x-large text class="mr-3 ml-5" >
-          <span  class="appBar4 " >Home</span>
-        </v-btn>
-        <v-btn @click="$vuetify.goTo('#historia'); " x-large text class="mr-3">
+    <v-row justify="end" class="hidden-md-and-down">
+        <v-col cols="2" align="center">
+          <v-btn  style="position:relative;z-index:100;"  x-large text class="mr-3 ml-5" >
+           <span  class="appBar4 ">Home</span>
+         </v-btn>
+        </v-col>
+
+        <v-col align="start">
+         <v-btn @click="$vuetify.goTo('#historia'); " x-large text class="mr-3">
           <span class="appBar4">Feijões</span>
-        </v-btn>
-        <v-btn @click="$vuetify.goTo('#form')" x-large class="mr-3"   text >
-          <span class="appBar4">Fale Conosco</span>
-        </v-btn>
+         </v-btn>
+        </v-col>
+
+        
+        <v-col align="end">
+         <v-btn @click="$vuetify.goTo('#form')" x-large class="mr-12" text >
+           <span class="appBar4">Fale Conosco</span>
+         </v-btn>
+        </v-col>
     </v-row>
     </v-app-bar>
 
@@ -114,24 +127,25 @@
 
 
     <v-row justify="start">
-     <img v-if=!isMobile   height="100" src="@/assets/logoFooterMob.png" > 
+     <img v-if=!isMobile height="100" src="@/assets/logoFooterMob.png" > 
     </v-row>
 
     <v-row class="mb-2" align="end" v-if="!isMobile" justify="space-between" >
         <v-row justify="end">
          <v-btn style="position:relative;z-index:100;" @click="$vuetify.goTo('#hero')"  x-large text class="mr-16" >
           <span  class="appBar4  ">Home</span>
-        </v-btn>
+         </v-btn>
+
         <v-btn  @click="$vuetify.goTo('#historia')" x-large text class="mr-16">
           <span  class="appBar4">Feijões</span>
         </v-btn>
+      
         <v-btn  @click="$vuetify.goTo('#form')"  x-large class="mr-16" rounded outlined text >
           <span class="appBar4">Fale Conosco</span>
         </v-btn>
-        </v-row>
-        
-         
+       </v-row>
     </v-row>
+
    <v-col class="mt-1" cols="12" v-else>
     <v-row  justify="space-between"  >
       <v-btn  class="" color="rgba(90,13,4,255)"  dark fab>
@@ -145,26 +159,27 @@
     </v-row>
    </v-col>
     </v-app-bar>
- </div>
 
+ </div>
 </template>
 
 <script>
 
 export default {
+
     name: 'Navigation',
     data:() =>({
         drawer:false,
         img:   [
             { 
-              src: require ('@/assets/bkMobile.png'),
+              src: require ('@/assets/logoSVG.svg'),
               width:"",
-              hight:"88"
+              hight:"70"
               
             },
-            { src: require ('@/assets/bkDesktop.png'),
+            { src: require ('@/assets/logoSVG.svg'),
               width:"22200",
-              hight:"95"
+              hight:"72"
             }
             
             ],
@@ -254,6 +269,7 @@ export default {
 </script>
 
 <style scoped>
+
 .title{
     color:#211004 !important;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -268,12 +284,36 @@ export default {
 
 }
 .appBar4{
-    font-size:22px;
-    color: white;
+    font-family: 'ebrima';
+    font-size:27px;
+    color: #f4f4cc;
+    text-transform: capitalize;
 }
 .spaceBar{
     width:850px ;
 }
+
+.dotDesktop{
+    height: 309px;
+    width: 320px;
+    border-radius:50%;
+    display: inline-block;
+    background: black;
+    position: absolute;
+    z-index: 9;
+    
+}
+.dotMobile{
+    height: 140px;
+    width: 170px;
+    border-radius:50%;
+    display: inline-block;
+    background: black;
+    position: absolute;
+    z-index: 9;
+    
+}
+
 
 
 .btnMenu{
