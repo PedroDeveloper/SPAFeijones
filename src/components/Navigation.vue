@@ -9,6 +9,7 @@
      temporary
      height="800"
      
+     
      >
      <v-list>
          <v-list-item>
@@ -84,12 +85,13 @@
     :width= imgWi
     :height= imgHe
     flat
+    
     >
    
-    <v-row justify="end" class="hidden-md-and-down">
+    <v-row justify="end" class="hidden-md-and-down alo ">
         <v-col cols="2" align="center">
-          <v-btn  style="position:relative;z-index:100;"  x-large text class="mr-3 ml-5" >
-           <span  class="appBar4 ">Home</span>
+          <v-btn  style="position:relative;z-index:1000;"  x-large text class="mr-3 ml-5" >
+           <span  class="appBar4">Home</span>
          </v-btn>
         </v-col>
 
@@ -121,6 +123,7 @@
     :width= imgWi
     height= "90px"
     flat
+    
     >
 
 
@@ -129,7 +132,7 @@
      <img v-if=!isMobile height="100" src="@/assets/logoFooterMob.png" > 
     </v-row>
 
-    <v-row class="mb-2" align="end" v-if="!isMobile" justify="space-between" >
+    <v-row class="mb-3" align="end" v-if="!isMobile" justify="space-between" >
         <v-row justify="end">
          <v-btn style="position:relative;z-index:100;" @click="$vuetify.goTo('#hero')"  x-large text class="mr-16" >
           <span  class="appBar4  ">Home</span>
@@ -239,6 +242,8 @@ export default {
 
                 case"xs":
                     return this.img[0].width
+                case "sm":
+                    return  this.img[0].width   
             default: return this.img[1].width
             }
 
@@ -247,6 +252,8 @@ export default {
              switch(this.$vuetify.breakpoint.name){
 
                 case"xs":
+                    return this.img[0].hight
+                case "sm":
                     return this.img[0].hight
             default: return this.img[1].hight
             }
@@ -258,6 +265,8 @@ export default {
             switch (this.$vuetify.breakpoint.name){
                 case"xs":
                     return 186
+                case "sm":
+                    return 186    
                 default: return 270
             }
         },
@@ -353,6 +362,9 @@ export default {
 
 
    
+}
+.alo{
+    padding-top:12rem ;
 }
 
 

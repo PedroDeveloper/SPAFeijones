@@ -344,10 +344,10 @@
 @media (min-width: 1024px)  {
 
   .bg {
-    height: 800px;
+    height: 770px;
     position: absolute;
     top: -2%;
-    left: 3%;
+    left: 4%;
   }
 
   #hero {
@@ -440,8 +440,15 @@
  
     .bg {
       height: 450px !important;
-      top: 14% !important;
+      top: 7% !important;
       left: -10% !important;
+    }
+  }
+
+  @media screen and (min-width: 1264px) and (max-width: 1300px) {
+    .bg {
+      height: 450px !important;
+      top: 6% !important;
     }
   }
 </style>
