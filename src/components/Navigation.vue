@@ -52,8 +52,7 @@
       dark
      :height=barSize
      flat
-    absolute
-    color="black"
+     color="black"
      >
 <v-col>
     <v-row justify="center">
@@ -79,9 +78,9 @@
    <v-spacer/>
 
     <v-app-bar
-    class="expand" 
+    class="expand poligon" 
     style="position:absolute;bottom:0px;"
-    color="rgba(90,13,4,0.7) "
+    color="rgba(90,13,4,0.7)"
     :width= imgWi
     :height= imgHe
     flat
@@ -120,7 +119,7 @@
     class="expand" 
     color="rgba(90,13,4,0.9) "
     :width= imgWi
-    :height= imgHe
+    height= "90px"
     flat
     >
 
@@ -174,12 +173,12 @@ export default {
             { 
               src: require ('@/assets/logoSVG.svg'),
               width:"",
-              hight:"70"
+              hight:"220"
               
             },
             { src: require ('@/assets/logoSVG.svg'),
-              width:"22200",
-              hight:"72"
+              width:"200000",
+              hight:"250"
             }
             
             ],
@@ -192,7 +191,19 @@ export default {
 
 
             
-        ]
+        ],
+        // imgApp:[
+        //     {
+        //         width:"",
+        //         hight:"100"
+        //     },
+        //     {
+        //         width:"",
+        //         hight:"100"
+        //     }
+        // ]
+        
+        
     }),
 
     methods: {
@@ -334,6 +345,14 @@ export default {
     bottom: 0px;
    
     
+}
+.poligon{
+   clip-path: polygon(52% 70%, 100% 79%, 100% 100%, 0 100%, 0 79%);
+
+
+
+
+   
 }
 
 

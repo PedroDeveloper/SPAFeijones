@@ -100,14 +100,15 @@
  }
   html {
     font-size: 10px;
-    /* max-width: 768px; */
+    max-width: 768px;
   }
   #hero {
     background: url("../assets/bg.jpeg");
     display: flex;
     justify-content: center;
-    /* min-height: 400px; */
-    /* max-width: 100vw; */
+    padding-top: 13rem;
+    min-height: 500px;
+    max-width: 100vw;
   }
   .first-div {
     display: grid;
@@ -126,6 +127,7 @@
     text-align: right;
     padding-right: 10px;
     padding-bottom: 10px;
+
   }
 
   .title-first {
@@ -157,7 +159,7 @@
     bottom: -40px;
     left: 170px;
     color: white;
-    z-index: 200;
+    z-index: 300;
   }
   .copo {
     height: 150px;
@@ -169,10 +171,9 @@
     height: 350px;
     transform: rotate(-10deg);
     position: relative;
-    bottom: 110%;
+    bottom: 45%;
     right: 10%;
-    z-index: 0;
-    margin-bottom: -300px;
+    z-index: 1;
   }
 
   
@@ -228,8 +229,8 @@
   }
   .embalagem {
     justify-self: flex-end;
-    left: 120% !important;
-    top: -115%;
+    left: 60%;
+    top: -40%;
   }
 }
 
@@ -242,8 +243,6 @@
 @media screen and (min-width: 800px) and (max-width: 1023px) {
   .embalagem {
     left: 5rem;
-    bottom: 30% !important;
-    top: 0 ;
   }
 }
 
@@ -299,7 +298,7 @@
   .embalagem {
     height: 500px;
     left: 30% !important;
-    top: -65% !important;
+    top: -25% !important;
   }
 
   .second-cta {
@@ -346,13 +345,13 @@
   .bg {
     height: 800px;
     position: absolute;
-    top: -2%;
+    top: 9%;
     left: 3%;
   }
 
   #hero {
     padding-bottom: 15rem;
-    padding-top: 4rem;
+    padding-top: 19rem;
   }
   /* CSS */
   .first-div { 
